@@ -31,7 +31,12 @@ def health_check():
     return jsonify({'status': 'Healthy'}), 200
 
 
+
 @main.route("/123")
 def check_status():
     return jsonify({"status": "verified"})
+
+@main.route('/', methods=['GET'])
+def hello():
+    return "hello"
 
