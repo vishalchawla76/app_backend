@@ -29,3 +29,7 @@ def login():
 @main.route('/health', methods=['GET'])
 def health_check():
     return jsonify({'status': 'Healthy'}), 200
+
+@main.route('/', methods=['GET'])
+def hello():
+    return "hello"
