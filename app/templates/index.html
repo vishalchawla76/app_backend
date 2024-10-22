@@ -3,124 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon</title>
+    <title>Login</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
+            background-color: #f0f0f0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            color: #333;
+            margin: 0;
         }
-
-        .container {
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .login-container h2 {
             text-align: center;
-            background: white;
-            padding: 50px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-
-        h1 {
-            font-size: 3rem;
             margin-bottom: 20px;
         }
-
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-
-        .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .countdown div {
-            background: #333;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-        }
-
-        .countdown div span {
+        .login-container label {
             display: block;
-            font-size: 2rem;
+            margin-bottom: 5px;
+            font-weight: bold;
         }
-
-        .countdown div small {
-            font-size: 0.9rem;
-            color: #ccc;
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
-
-        footer {
-            margin-top: 30px;
-            font-size: 0.8rem;
-            color: #999;
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .login-container button:hover {
+            background-color: #218838;
+        }
+        .login-container .signup-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Our Website is Coming Soon!</h1>
-        <p>We are working hard to launch in <span id="launchDate">0</span> days.</p>
 
-        <div class="countdown">
-            <div>
-                <span id="days">00</span>
-                <small>Days</small>
-            </div>
-            <div>
-                <span id="hours">00</span>
-                <small>Hours</small>
-            </div>
-            <div>
-                <span id="minutes">00</span>
-                <small>Minutes</small>
-            </div>
-            <div>
-                <span id="seconds">00</span>
-                <small>Seconds</small>
-            </div>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="/login" method="POST">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter Username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter Password" required>
+
+            <button type="submit">Login</button>
+        </form>
+        <div class="signup-link">
+            <a href="/signup">Don't have an account? Sign Up</a>
         </div>
-
-        <footer>
-            &copy; 2024 Your Company Name. All rights reserved.
-        </footer>
     </div>
 
-    <script>
-        // Set the date we're counting down to
-        var countDownDate = new Date("Dec 31, 2024 00:00:00").getTime();
-
-        // Update the countdown every second
-        var countdownFunction = setInterval(function() {
-            var now = new Date().getTime();
-            var distance = countDownDate - now;
-
-            // Time calculations for days, hours, minutes and seconds
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Display the result in the respective elements
-            document.getElementById("days").innerHTML = days;
-            document.getElementById("hours").innerHTML = hours;
-            document.getElementById("minutes").innerHTML = minutes;
-            document.getElementById("seconds").innerHTML = seconds;
-
-            // If the countdown is finished, display a message
-            if (distance < 0) {
-                clearInterval(countdownFunction);
-                document.querySelector(".container").innerHTML = "<h1>We Have Launched!</h1>";
-            }
-        }, 1000);
-    </script>
 </body>
 </html>
