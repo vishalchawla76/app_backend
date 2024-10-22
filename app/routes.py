@@ -5,12 +5,13 @@ main = Blueprint('main', __name__)
 
 # Dummy data for user authentication (typically, you'd use a database)
 users = {
-    "testuser": {"password": "password123"}
+    "vishal": {"password": "vishal"}
 }
 
 
 @main.route('/login', methods=['POST'])
 def login():
+    print("login api entered")
     data = request.get_json()
     username = data.get('username')
     password = data.get('password')
