@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, render_template
+from flask import Blueprint, request, jsonify
 
 main = Blueprint('main', __name__)
 
@@ -34,8 +34,4 @@ def health_check():
 @main.route("/123")
 def check_status():
     return jsonify({"status": "verified"})
-
-@main.route("/")
-def hello():
-    return render_template('index.html')
 
